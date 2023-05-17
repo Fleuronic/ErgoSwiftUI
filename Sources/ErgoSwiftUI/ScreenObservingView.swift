@@ -4,7 +4,7 @@ import UIKit
 import SwiftUI
 import Workflow
 
-struct PublishedView<View: ScreenBackedView> where View.Screen: PublishedScreen {
+struct ScreenObservingView<View: BodyProvider> where View.Screen: BodyBackingScreen {
 	private let view: View
 
 	@ObservedObject
@@ -20,8 +20,8 @@ struct PublishedView<View: ScreenBackedView> where View.Screen: PublishedScreen 
 }
 
 // MARK: -
-extension PublishedView: SwiftUI.View {
+extension ScreenObservingView: SwiftUI.View {
 	var body: some SwiftUI.View {
-		view.body(backedBy: screenPublisher.screen)
+		view.body(with: screenPublisher.screen)
 	}
 }

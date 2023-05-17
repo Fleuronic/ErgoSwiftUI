@@ -5,9 +5,9 @@ import UIKit
 import WorkflowUI
 import ReactiveSwift
 
-class PublishedViewController<View: ScreenBackedView>: ScreenViewController<View.Screen> where View.Screen: PublishedScreen {
+class BodyViewController<View: BodyProvider>: ScreenViewController<View.Screen> where View.Screen: BodyBackingScreen {
 	private let screenPublisher: ScreenPublisher<View.Screen>
-	private let hostingController: UIHostingController<PublishedView<View>>
+	private let hostingController: UIHostingController<ScreenObservingView<View>>
 
 	// MARK: UIViewController
 	override func viewDidLoad() {

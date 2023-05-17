@@ -3,11 +3,11 @@
 import SwiftUI
 import WorkflowUI
 
-public protocol ScreenBackedView {
+public protocol BodyProvider {
 	associatedtype Body: SwiftUI.View
 	associatedtype Screen: WorkflowUI.Screen
 
 	init()
 
-	func body(backedBy screen: Screen) -> Body
+	func body(with screen: Screen) -> Body
 }
