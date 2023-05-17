@@ -2,27 +2,23 @@
 import PackageDescription
 
 let package = Package(
-    name: "ErgoDeclarativeUIKit",
+    name: "ErgoSwiftUI",
     platforms: [
         .iOS(.v16)
     ],
     products: [
 		.library(
-			name: "ErgoDeclarativeUIKit",
-			targets: ["ErgoDeclarativeUIKit"]
+			name: "ErgoSwiftUI",
+			targets: ["ErgoSwiftUI"]
 		)
     ],
     dependencies: [
-		.package(url: "https://github.com/Fleuronic/ErgoUIKit", branch: "main"),
-        .package(url: "https://github.com/DeclarativeHub/Layoutless", .upToNextMajor(from: "0.4.0"))
+		.package(url: "https://github.com/Fleuronic/Ergo", branch: "main")
     ],
     targets: [
 		.target(
-			name: "ErgoDeclarativeUIKit",
-			dependencies: [
-				"ErgoUIKit",
-				"Layoutless"
-			]
+			name: "ErgoSwiftUI",
+			dependencies: ["Ergo"]
 		)
     ]
 )
