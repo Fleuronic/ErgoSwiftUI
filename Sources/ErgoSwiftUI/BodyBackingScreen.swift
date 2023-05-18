@@ -1,6 +1,5 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import SwiftUI
 import WorkflowUI
 
 public protocol BodyBackingScreen: Screen where View.Screen == Self {

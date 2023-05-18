@@ -1,9 +1,8 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import SwiftUI
 import UIKit
+import SwiftUI
 import WorkflowUI
-import ReactiveSwift
 
 class BodyViewController<View: BodyProvider>: ScreenViewController<View.Screen> where View.Screen: BodyBackingScreen {
 	private let screenPublisher: ScreenPublisher<View.Screen>

@@ -1,7 +1,7 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import WorkflowUI
 import Combine
+import WorkflowUI
 
 final class ScreenPublisher<Screen: WorkflowUI.Screen>: ObservableObject {
 	@Published var screen: Screen
