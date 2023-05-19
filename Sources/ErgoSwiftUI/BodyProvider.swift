@@ -1,11 +1,10 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
-import SwiftUI
-import WorkflowUI
+import protocol SwiftUI.View
+import protocol Ergo.ScreenBacked
 
-public protocol BodyProvider {
+public protocol BodyProvider: ScreenBacked {
 	associatedtype Body: SwiftUI.View
-	associatedtype Screen: WorkflowUI.Screen
 
 	init()
 

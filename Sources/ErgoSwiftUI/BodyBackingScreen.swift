@@ -2,6 +2,8 @@
 
 import WorkflowUI
 
+import protocol Ergo.ScreenBacked
+
 public protocol BodyBackingScreen: Screen where View.Screen == Self {
 	associatedtype View: BodyProvider
 }

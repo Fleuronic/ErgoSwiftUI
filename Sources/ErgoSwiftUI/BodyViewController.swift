@@ -4,8 +4,8 @@ import UIKit
 import SwiftUI
 import WorkflowUI
 
-class BodyViewController<View: BodyProvider>: ScreenViewController<View.Screen> where View.Screen: BodyBackingScreen {
-	private let screenPublisher: ScreenPublisher<View.Screen>
+class BodyViewController<View: BodyProvider>: ScreenViewController<View.Screen> {
+	private let context: ScreenObservingView<View>.Context
 	private let hostingController: UIHostingController<ScreenObservingView<View>>
 
 	// MARK: UIViewController
@@ -21,11 +21,11 @@ class BodyViewController<View: BodyProvider>: ScreenViewController<View.Screen> 
 
 	// MARK: ScreenViewController
 	required init(screen: View.Screen, environment: ViewEnvironment) {
-		screenPublisher = .init(screen: screen)
+		context = .init(screen: screen)
 		hostingController = .init(
 			rootView: .init(
-				view: View(),
-				screenPublisher: screenPublisher
+				content: .init(),
+				context: context
 			)
 		)
 
@@ -38,6 +38,6 @@ class BodyViewController<View: BodyProvider>: ScreenViewController<View.Screen> 
 
 	override func screenDidChange(from previousScreen: View.Screen, previousEnvironment: ViewEnvironment) {
 		super.screenDidChange(from: previousScreen, previousEnvironment: previousEnvironment)
-		screenPublisher.screen = screen
+		context.screen = screen
 	}
 }

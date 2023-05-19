@@ -1,26 +1,36 @@
 // Copyright © Fleuronic LLC. All rights reserved.
 
 import SwiftUI
-import Workflow
 
-struct ScreenObservingView<View: BodyProvider> where View.Screen: BodyBackingScreen {
-	private let view: View
+struct ScreenObservingView<Content: BodyProvider> {
+	private let content: Content
 
-	@ObservedObject
-	private var screenPublisher: ScreenPublisher<View.Screen>
+	@ObservedObject private var context: Context
 
 	init(
-		view: View,
-		screenPublisher: ScreenPublisher<View.Screen>
+		content: Content,
+		context: Context
 	) {
-		self.view = view
-		self.screenPublisher = screenPublisher
+		self.content = content
+		self.context = context
+	}
+}
+
+// MARK: -
+extension ScreenObservingView {
+	final class Context: ObservableObject {
+		@Published var screen: Content.Screen
+
+		init(screen: Content.Screen) {
+			self.screen = screen
+		}
 	}
 }
 
 // MARK: -
 extension ScreenObservingView: SwiftUI.View {
+	// MARK: View
 	var body: some SwiftUI.View {
-		view.body(with: screenPublisher.screen)
+		content.body(with: context.screen)
 	}
 }
