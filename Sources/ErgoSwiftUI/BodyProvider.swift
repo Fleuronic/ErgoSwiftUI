@@ -4,7 +4,7 @@ import protocol SwiftUI.View
 import protocol Ergo.ScreenBacked
 
 public protocol BodyProvider: ScreenBacked {
-	associatedtype Body: SwiftUI.View
+	associatedtype Body: View
 
 	init()
 
