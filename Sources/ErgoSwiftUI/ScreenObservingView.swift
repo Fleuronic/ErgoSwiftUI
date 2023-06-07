@@ -3,15 +3,15 @@
 import SwiftUI
 
 struct ScreenObservingView<Content: BodyProvider> {
-	private let content: Content
+	private let contentType: Content.Type
 
 	@ObservedObject private var context: Context
 
 	init(
-		content: Content,
+		contentType: Content.Type,
 		context: Context
 	) {
-		self.content = content
+		self.contentType = contentType
 		self.context = context
 	}
 }
@@ -31,6 +31,6 @@ extension ScreenObservingView {
 extension ScreenObservingView: SwiftUI.View {
 	// MARK: View
 	var body: some SwiftUI.View {
-		content.body(with: context.screen)
+		contentType.body(with: context.screen)
 	}
 }

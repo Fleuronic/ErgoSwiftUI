@@ -24,7 +24,7 @@ class BodyViewController<View: BodyProvider>: ScreenViewController<View.Screen> 
 		context = .init(screen: screen)
 		hostingController = .init(
 			rootView: .init(
-				content: .init(),
+				contentType: View.self,
 				context: context
 			)
 		)

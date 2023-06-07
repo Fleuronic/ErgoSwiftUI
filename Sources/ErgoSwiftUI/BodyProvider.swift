@@ -6,7 +6,5 @@ import protocol Ergo.ScreenBacked
 public protocol BodyProvider: ScreenBacked {
 	associatedtype Body: View
 
-	init()
-
-	func body(with screen: Screen) -> Body
+	static func body(with screen: Screen) -> Body
 }
