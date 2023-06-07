@@ -10,7 +10,7 @@ public func assertView<View: BodyProvider>(ofType type: View.Type, named name: S
 
 	XCTAssertNil(
 		verifySnapshot(
-			matching: View()
+			matching: View
 				.body(with: screen)
 				.frame(
 					width: size.width,
