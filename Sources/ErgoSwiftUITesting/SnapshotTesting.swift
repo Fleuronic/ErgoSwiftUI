@@ -20,12 +20,12 @@ public func assertView<View: BodyProvider>(ofType type: View.Type, named name: S
 			named: "Snapshot",
 			snapshotDirectory: filePath
 				.components(separatedBy: ".")
-					.dropLast(1)
-					.joined()
-					.components(separatedBy: "/")
-					.dropLast(1)
-					.joined(separator: "/")
-					.appending("/Resources"),
+				.dropLast(1)
+				.joined()
+				.components(separatedBy: "/")
+				.dropLast(1)
+				.joined(separator: "/")
+				.appending("/Resources"),
 			testName: name
 		)
 	)

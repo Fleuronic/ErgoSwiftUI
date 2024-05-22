@@ -2,11 +2,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "ErgoSwiftUI",
-    platforms: [
-        .iOS(.v14)
-    ],
-    products: [
+	name: "ErgoSwiftUI",
+	platforms: [
+		.iOS(.v14)
+	],
+	products: [
 		.library(
 			name: "ErgoSwiftUI",
 			targets: ["ErgoSwiftUI"]
@@ -15,12 +15,12 @@ let package = Package(
 			name: "ErgoSwiftUITesting",
 			targets: ["ErgoSwiftUITesting"]
 		)
-    ],
-    dependencies: [
+	],
+	dependencies: [
 		.package(url: "https://github.com/Fleuronic/Ergo", branch: "main"),
 		.package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.10.0")
-    ],
-    targets: [
+	],
+	targets: [
 		.target(
 			name: "ErgoSwiftUI",
 			dependencies: ["Ergo"]
@@ -32,5 +32,5 @@ let package = Package(
 				.product(name: "SnapshotTesting", package: "swift-snapshot-testing")
 			]
 		)
-    ]
+	]
 )
