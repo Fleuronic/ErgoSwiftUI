@@ -3,6 +3,7 @@
 import UIKit
 import SwiftUI
 import WorkflowUI
+import ViewEnvironment
 
 class BodyViewController<View: BodyProvider>: ScreenViewController<View.Screen> {
 	private let context: ScreenObservingView<View>.Context
